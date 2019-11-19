@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -16,18 +21,49 @@
       <RowConstraints />
    </rowConstraints>
    <children>
-      <AnchorPane prefHeight="278.0" prefWidth="370.0">
+      <AnchorPane prefHeight="494.0" prefWidth="677.0">
          <children>
-            <Button fx:id="runner" layoutX="14.0" layoutY="35.0" mnemonicParsing="false" onAction="#start" text="Generate" />
-            <Button fx:id="chart" layoutX="100.0" layoutY="34.0" mnemonicParsing="false" onAction="#drawChart" text="Show chart" />
-            <Label fx:id="islandOne" layoutX="166.0" layoutY="97.0" prefHeight="26.0" prefWidth="54.0" style="-fx-background-color: E97979;" text="  Island 1" textAlignment="JUSTIFY" />
-            <Label fx:id="islandTwo" layoutX="51.0" layoutY="158.0" prefHeight="26.0" prefWidth="54.0" style="-fx-background-color: E97979;" text="  Island 2" />
-            <Label fx:id="islandThree" layoutX="110.0" layoutY="223.0" prefHeight="26.0" prefWidth="54.0" style="-fx-background-color: E97979;" text="  Island 3" />
-            <Label fx:id="islandFour" layoutX="220.0" layoutY="223.0" prefHeight="26.0" prefWidth="54.0" style="-fx-background-color: E97979;" text="  Island 4" />
-            <Label fx:id="islandFive" layoutX="274.0" layoutY="158.0" prefHeight="26.0" prefWidth="54.0" style="-fx-background-color: E97979;" text="  Island 5" />
-            <Button fx:id="mutation" layoutX="193.0" layoutY="34.0" mnemonicParsing="false" onAction="#setMutation" text="Set P of mutation" />
-            <TextField fx:id="mutatuionText" layoutX="314.0" layoutY="34.0" prefHeight="26.0" prefWidth="65.0" />
-            <Label fx:id="exchange" layoutX="160.0" layoutY="158.0" prefHeight="26.0" prefWidth="66.0" text="EXCHANGE" />
+            <Label fx:id="islandOne" layoutX="161.0" layoutY="47.0" prefHeight="26.0" prefWidth="54.0" style="-fx-background-color: E97979;" text="  Island 1" textAlignment="JUSTIFY" />
+            <Label fx:id="islandTwo" layoutX="46.0" layoutY="108.0" prefHeight="26.0" prefWidth="54.0" style="-fx-background-color: E97979;" text="  Island 2" />
+            <Label fx:id="islandThree" layoutX="105.0" layoutY="173.0" prefHeight="26.0" prefWidth="54.0" style="-fx-background-color: E97979;" text="  Island 3" />
+            <Label fx:id="islandFour" layoutX="215.0" layoutY="173.0" prefHeight="26.0" prefWidth="54.0" style="-fx-background-color: E97979;" text="  Island 4" />
+            <Label fx:id="islandFive" layoutX="269.0" layoutY="108.0" prefHeight="26.0" prefWidth="54.0" style="-fx-background-color: E97979;" text="  Island 5" />
+            <TextField fx:id="mutatuion" layoutX="415.0" layoutY="95.0" prefHeight="8.0" prefWidth="66.0" />
+            <Button fx:id="launch" layoutX="415.0" layoutY="473.0" mnemonicParsing="false" onAction="#launch" prefHeight="26.0" prefWidth="110.0" text="Launch" />
+            <TextField fx:id="iterations" layoutX="415.0" layoutY="45.0" prefHeight="26.0" prefWidth="65.0" />
+            <Label layoutX="500.0" layoutY="49.0" text="Amount of iterations" />
+            <Label layoutX="500.0" layoutY="97.0" text="Probability of mutation" />
+            <Label layoutX="500.0" layoutY="216.0" text="Accuracy" />
+            <TextField fx:id="Accuaracy" layoutX="415.0" layoutY="212.0" prefHeight="26.0" prefWidth="65.0" />
+            <Label layoutX="500.0" layoutY="266.0" text="Check point" />
+            <TextField fx:id="checkPoint" layoutX="415.0" layoutY="262.0" prefHeight="26.0" prefWidth="65.0" />
+            <Label layoutX="500.0" layoutY="155.0" text="Way of mutation" />
+            <LineChart fx:id="chart" layoutX="16.0" layoutY="234.0" prefHeight="294.0" prefWidth="397.0">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" />
+              </yAxis>
+            </LineChart>
+            <TextField fx:id="amountIndivid" layoutX="415.0" layoutY="312.0" prefHeight="26.0" prefWidth="65.0" />
+            <Label layoutX="500.0" layoutY="316.0" text="The number of individuals" />
+            <RadioButton fx:id="sMutation" layoutX="415.0" layoutY="146.0" mnemonicParsing="false" text="Strong">
+               <toggleGroup>
+                  <ToggleGroup fx:id="group1" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="wMuatation" layoutX="415.0" layoutY="164.0" mnemonicParsing="false" text="Weak" toggleGroup="$group1" />
+            <Button fx:id="setParams" layoutX="538.0" layoutY="473.0" mnemonicParsing="false" onAction="#setParams" prefHeight="26.0" prefWidth="110.0" text="Set params" />
+            <TextField fx:id="fExchange" layoutX="415.0" layoutY="362.0" prefHeight="26.0" prefWidth="65.0" />
+            <Label layoutX="500.0" layoutY="366.0" text="Frequency of exchange" />
+            <RadioButton fx:id="op" layoutX="414.0" layoutY="405.0" mnemonicParsing="false" text="One point">
+               <toggleGroup>
+                  <ToggleGroup fx:id="group2" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="tp" layoutX="415.0" layoutY="436.0" mnemonicParsing="false" text="Two points" toggleGroup="$group2" />
+            <RadioButton fx:id="uni" layoutX="526.0" layoutY="405.0" mnemonicParsing="false" text="Uniform" toggleGroup="$group2" />
          </children>
       </AnchorPane>
    </children>
